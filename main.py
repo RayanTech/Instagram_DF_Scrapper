@@ -44,9 +44,9 @@ class GetData:
       x = datetime.datetime.now()
       account = user #user account name
       for i in range(1,count):
-        Scrapper.execute_script("arguments[0].scrollIntoView();", scr1)
+        Scrapper.execute_script("arguments[0].scrollIntoView();", element_text)
         time.sleep(1)
-        text = scr1.text
+        text = element_text.text
         list = text.encode('utf-8').split()
         dirname = os.path.dirname(os.path.abspath(__file__))
         csvfilename = os.path.join(dirname, account + "-" + element_text + ".txt")
