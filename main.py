@@ -31,21 +31,21 @@ class GetData:
         time.sleep(3)  # Wait for 3 sec.
 
     def FollowersData(self):
-       Get = self.bot
+       bot = self.bot
        element_text = "followers" 
-       Get.find_element_by_xpath('//a[contains(@href, "%s")]' %element_text).click()
-       #FD = driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a')
-       #Followers_count = FD.text
+       bot.find_element_by_xpath('//a[contains(@href, "%s")]' % element_text).click()
+       FD = bot.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a')
+       Followers_count = FD.text
 
     def DataScrape(self, user):
-      Scrapper = self.bot
+      bot = self.bot
       count = 50 # number of data user to scrape
       element_text = "followers" 
       x = datetime.datetime.now()
       account = user #user account name
       for i in range(1,count):
-        s = Scrapper.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li[%s]' % i)
-        Scrapper.execute_script("arguments[0].scrollIntoView();", s)
+        s = bot.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li[%s]' % i)
+        bot.execute_script("arguments[0].scrollIntoView();", s)
         time.sleep(1)
         text = s.text
         list = text.encode('utf-8').split()
@@ -60,11 +60,12 @@ class GetData:
           print(x)
 
 
+
 def app_process():
-        emailInput = '###############' # Please replace the text with you email before debugging
-        passwordInput = '#############' # Please replace the text with you password before debugging
+        emailInput = '##############' # Please replace the text with you email before debugging
+        passwordInput = '###############' # Please replace the text with you password before debugging
         #numOfPosts = int(3) # the number of post you would like to interact with
-        userSearch = 'nzr.mutfak' # your Hashtag
+        userSearch = 'sat_kitchener' # your Hashtag
         ed = GetData(emailInput, passwordInput)  # Username, Password # HTML
         ed.login()  # Account login trigger
         ed.UserData(userSearch)  # The hash-tag search # HTML
