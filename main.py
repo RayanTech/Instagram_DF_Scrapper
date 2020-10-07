@@ -60,8 +60,8 @@ class GetData:
 
 
 def app_process():
-        emailInput = 'engineer-rayan@outlook.com' # Please replace the text with you email before debugging
-        passwordInput = 'Qwer0554628997' # Please replace the text with you password before debugging
+        emailInput = '###############' # Please replace the text with you email before debugging
+        passwordInput = '###############' # Please replace the text with you password before debugging
         #numOfPosts = int(3) # the number of post you would like to interact with
         userSearch = 'halalfoodieldn' # your Hashtag
         ed = GetData(emailInput, passwordInput)  # Username, Password # HTML
