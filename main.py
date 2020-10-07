@@ -39,14 +39,15 @@ class GetData:
 
     def DataScrape(self, user):
       Scrapper = self.bot
-      count = 500 # number of data user to scrape
+      count = 50 # number of data user to scrape
       element_text = "followers" 
       x = datetime.datetime.now()
       account = user #user account name
       for i in range(1,count):
-        Scrapper.execute_script("arguments[0].scrollIntoView();", element_text)
+        s = Scrapper.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/ul/div/li[%s]' % i)
+        Scrapper.execute_script("arguments[0].scrollIntoView();", s)
         time.sleep(1)
-        text = element_text.text
+        text = s.text
         list = text.encode('utf-8').split()
         dirname = os.path.dirname(os.path.abspath(__file__))
         csvfilename = os.path.join(dirname, account + "-" + element_text + ".txt")
@@ -61,9 +62,9 @@ class GetData:
 
 def app_process():
         emailInput = '###############' # Please replace the text with you email before debugging
-        passwordInput = '###############' # Please replace the text with you password before debugging
+        passwordInput = '#############' # Please replace the text with you password before debugging
         #numOfPosts = int(3) # the number of post you would like to interact with
-        userSearch = 'halalfoodieldn' # your Hashtag
+        userSearch = 'nzr.mutfak' # your Hashtag
         ed = GetData(emailInput, passwordInput)  # Username, Password # HTML
         ed.login()  # Account login trigger
         ed.UserData(userSearch)  # The hash-tag search # HTML
